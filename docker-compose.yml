@@ -1,0 +1,44 @@
+
+services:
+  backend:
+    build:
+      context: ./my-app/backend
+    container_name: backend
+    ports:
+      - "5001:5001" 
+    environment:
+      MONGO_USERNAME: mongoadmin
+      MONGO_PASSWORD: test123
+    depends_on:
+      - mongo
+    volumes:
+      - ./my-app/backend:/app
+  
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_DATABASE: test_mongodb
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: test123
+
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodata:/data/db
+ 
+
+  frontend:
+    build:
+      context: ./my-app/frontend
+    container_name: frontend
+    ports:
+      - "3000:3000" 
+    volumes:
+      - ./my-app/frontend:/app
+    stdin_open: true
+    tty: true
+
+
+volumes:
+  mongodata:
+    driver: local
