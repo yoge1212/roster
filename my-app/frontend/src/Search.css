@@ -1,0 +1,36 @@
+.Search {
+    text-align: center;
+    color: white;
+    flex-direction: row;
+    
+ 
+    
+  }
+
+  .Container {
+    padding-left: 500px;
+  }
+
+  .input {
+    width: 130%;
+    padding: 5px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px; 
+    outline: none;
+}
+  
+
+    .Results {
+        color:black;
+        width: 20%;
+        max-height: 100px;
+        border: 1px solid #ccc;
+        border-radius: 8px; 
+        background-color: white; 
+        position: fixed;
+        overflow-y: scroll;
+        list-style-type: none;
+    }
+
+  
